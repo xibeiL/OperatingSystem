@@ -1,0 +1,4 @@
+a = Process(target=自定义的函数名，arg=())
+a.start()启动进程
+a.terminate()强行终止进程
+a.join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。
