@@ -1,0 +1,18 @@
+from multiprocessing import Process      
+import os
+def runproc(name):
+    print('run child process %s '%(os.getppid()))
+if __name__ =='__main__':
+    print( 'Parent process %s.' % (os.getpid()))
+    p = Process(target=runproc, args=('test',))
+    print('Process will start.')
+    p.start()
+    p.join()
+    print('Process end.')
+    
+    
+    
+#multiprocessing模块提供了一个Process类来代表一个进程模块
+#创建子进程时，只需要传入一个执行函数和函数的参数，
+#创建一个Process实例，用start()方法启动，这样创建进程比fork()还要简单。
+#join()方法可以等待子进程结束后再继续往下运行，通常用于进程间的同步。
